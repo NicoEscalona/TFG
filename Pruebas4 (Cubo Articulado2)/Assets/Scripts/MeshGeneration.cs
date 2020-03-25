@@ -15,17 +15,13 @@ public class MeshGeneration : MonoBehaviour
     void Awake()
     {
         mesh = GetComponent<MeshFilter>().mesh;
-    }
-
-    void Start()
-    {
         
         //Debug.Log(CubeMeshData.triangles.Count);
         //Debug.Log(CubeMeshData.triangles[2]);
 
         //totalTris = CubeMeshData.triangles[CubeMeshData.triangles.Count-1].triangulo;
 
-        totalTris = (CubeMeshData.triangles.Count / 3) -1;
+        totalTris = (CubeMeshData.triangles.Count / 3) - 1;
 
         //Debug.Log(CubeMeshData.triangles[CubeMeshData.triangles.Count - 1].triangulo);
 
@@ -34,6 +30,12 @@ public class MeshGeneration : MonoBehaviour
         CrearCubo();
 
         UpdateMesh();
+    }
+
+    void Start()
+    {
+        
+       
     }
 
 

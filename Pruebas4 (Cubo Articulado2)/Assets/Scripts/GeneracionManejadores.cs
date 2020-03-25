@@ -16,19 +16,16 @@ public class GeneracionManejadores : MonoBehaviour
     void Start()
     {
         manejarManejadores = manejador.GetComponent<ManejarManejadores>();
+        
+        nvert = CubeMeshData.vertices.Count;
+
+        GenerarBolas();
     }
 
 
     void Update()
     {
-
-        if (Input.GetKeyDown("m"))
-        {
-
-            nvert = CubeMeshData.vertices.Count;
-
-            GenerarBolas();
-        }
+       
     }
 
     void GenerarBolas()
