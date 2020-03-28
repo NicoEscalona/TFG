@@ -56,29 +56,37 @@ public class MeshGeneration : MonoBehaviour
 
                 int triangulo = (hit.triangleIndex) * 3;
 
+                /*
                 Debug.Log(triangulo);
                 //Debug.Log(CubeMeshData.triangles[triangulo]);
 
                 //Almacenar vertices originales de la cara
-                int indiceVert1 = CubeMeshData.triangles[triangulo].triangulo;
-                int indiceVert2 = CubeMeshData.triangles[triangulo+1].triangulo;
-                int indiceVert3 = CubeMeshData.triangles[triangulo+2].triangulo;
+                int indiceVert1 = CubeMeshData.triangles[triangulo];
+                int indiceVert2 = CubeMeshData.triangles[triangulo+1];
+                int indiceVert3 = CubeMeshData.triangles[triangulo+2];
 
+                
+                Debug.Log(indiceVert1);
+                Debug.Log(indiceVert2);
+                Debug.Log(indiceVert3);
 
-                caraSubdiv.Add(CubeMeshData.vertices[CubeMeshData.triangles[triangulo].triangulo]);
-                caraSubdiv.Add(CubeMeshData.vertices[CubeMeshData.triangles[triangulo+1].triangulo]);
-                caraSubdiv.Add(CubeMeshData.vertices[CubeMeshData.triangles[triangulo+2].triangulo]);
+                
+                caraSubdiv.Add(CubeMeshData.vertices[CubeMeshData.triangles[triangulo]]);
+                caraSubdiv.Add(CubeMeshData.vertices[CubeMeshData.triangles[triangulo+1]]);
+                caraSubdiv.Add(CubeMeshData.vertices[CubeMeshData.triangles[triangulo+2]]);
 
                 //subdividir aritsas de la cara original
                 Vector3 nuevoVertice1 = (caraSubdiv[0] - caraSubdiv[1]) * 0.5f;
                 Vector3 nuevoVertice2 = (caraSubdiv[1] - caraSubdiv[2]) * 0.5f;
                 Vector3 nuevoVertice3 = (caraSubdiv[2] - caraSubdiv[0]) * 0.5f;
+                */
 
                 //Eliminar cara original
                 CubeMeshData.triangles.Remove(CubeMeshData.triangles[triangulo]);
                 CubeMeshData.triangles.Remove(CubeMeshData.triangles[triangulo]);
                 CubeMeshData.triangles.Remove(CubeMeshData.triangles[triangulo]);
 
+                /*
                 //triangular la cara subdividida
                 CubeMeshData.vertices.Add(nuevoVertice1);
                 CubeMeshData.vertices.Add(nuevoVertice2);
@@ -87,6 +95,7 @@ public class MeshGeneration : MonoBehaviour
                 //triangular la cara subdividida
                 int totalVert = CubeMeshData.vertices.Count;
 
+                
                 CubeMeshData.triangles.Add(new nodo(totalTris + 1, indiceVert1));
                 CubeMeshData.triangles.Add(new nodo(totalTris + 1, totalVert - 2));
                 CubeMeshData.triangles.Add(new nodo(totalTris + 1, totalVert - 1));
@@ -98,18 +107,33 @@ public class MeshGeneration : MonoBehaviour
                 CubeMeshData.triangles.Add(new nodo(totalTris + 2, totalVert - 1));
                 CubeMeshData.triangles.Add(new nodo(totalTris + 2, totalVert));
                 CubeMeshData.triangles.Add(new nodo(totalTris + 2, totalVert - 2));
+                
 
-                totalTris = (CubeMeshData.triangles.Count / 3) - 1;
+                CubeMeshData.triangles.Add(indiceVert1);
+                CubeMeshData.triangles.Add(totalVert - 2);
+                CubeMeshData.triangles.Add(totalVert - 1);
+
+                CubeMeshData.triangles.Add(totalVert - 2);
+                CubeMeshData.triangles.Add(indiceVert2);
+                CubeMeshData.triangles.Add(totalVert);
+
+                CubeMeshData.triangles.Add(totalVert - 1);
+                CubeMeshData.triangles.Add(totalVert);
+                CubeMeshData.triangles.Add(totalVert - 2);
+                */
+
+                totalTris = ((CubeMeshData.triangles.Count ) / 3) - 1;
 
                 UpdateMesh();
+                
             }
         }
     }
 
     public void CrearCubo()
     {
-        
-        
+        //totalTris = (CubeMeshData.triangles.Count / 3) - 1;
+
         vertices = new List<Vector3>();
         trianglesd = new List<int>();
 
@@ -125,7 +149,8 @@ public class MeshGeneration : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            int triangulodir = CubeMeshData.triangles[dir*3 + i].vertice;
+            //int triangulodir = CubeMeshData.triangles[dir*3 + i].vertice;
+            int triangulodir = CubeMeshData.triangles[dir * 3 + i];
             //Debug.Log(triangulodir);
             Vector3 vectori = CubeMeshData.vertices[triangulodir];
 

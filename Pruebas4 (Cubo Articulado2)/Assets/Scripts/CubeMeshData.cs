@@ -30,7 +30,7 @@ public static class CubeMeshData
         }
     }
 
-    /*
+    
     public static List<int> triangles = new List<int>
     {
         //Creador de triángulos simple.
@@ -45,12 +45,12 @@ public static class CubeMeshData
         5, 3, 6,
         1, 0, 5,
         1, 5, 4,
-        6, 7, 2,
-        6, 2, 3
+        6, 2, 7,
+        6, 3, 2
     };
-    */
+    
 
-
+    /*
     public static List<nodo> triangles = new List<nodo>
     {
         new nodo (  0, 0), new nodo (  0, 1), new nodo (  0, 2),
@@ -65,6 +65,8 @@ public static class CubeMeshData
         new nodo (  9, 1), new nodo (  9, 5), new nodo (  9, 4),
         new nodo ( 10, 6), new nodo ( 10, 2), new nodo ( 10, 7),
         new nodo ( 11, 6), new nodo ( 11, 3), new nodo ( 11, 2),
-       
+
     };
+    */
+
 }
