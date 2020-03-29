@@ -28,8 +28,6 @@ public class MeshGeneration : MonoBehaviour
 
         Debug.Log(CubeMeshData.triangles.Count);
 
-        CrearCubo();
-
         UpdateMesh();
     }
 
@@ -79,12 +77,21 @@ public class MeshGeneration : MonoBehaviour
                 Vector3 nuevoVertice1 = (caraSubdiv[0] - caraSubdiv[1]) * 0.5f;
                 Vector3 nuevoVertice2 = (caraSubdiv[1] - caraSubdiv[2]) * 0.5f;
                 Vector3 nuevoVertice3 = (caraSubdiv[2] - caraSubdiv[0]) * 0.5f;
-                */
+                
+
+                
 
                 //Eliminar cara original
                 CubeMeshData.triangles.Remove(CubeMeshData.triangles[triangulo]);
                 CubeMeshData.triangles.Remove(CubeMeshData.triangles[triangulo]);
                 CubeMeshData.triangles.Remove(CubeMeshData.triangles[triangulo]);
+                */
+
+                CubeMeshData.triangles.RemoveAt(triangulo);
+                CubeMeshData.triangles.RemoveAt(triangulo);
+                CubeMeshData.triangles.RemoveAt(triangulo);
+
+
 
                 /*
                 //triangular la cara subdividida
@@ -167,7 +174,9 @@ public class MeshGeneration : MonoBehaviour
         trianglesd.Add(vCount - 3);
         trianglesd.Add(vCount - 3 + 1);
         trianglesd.Add(vCount - 3 + 2);
-       
+
+        
+
     }
 
     public void UpdateMesh()
@@ -177,6 +186,14 @@ public class MeshGeneration : MonoBehaviour
         mesh.Clear();
 
         CrearCubo();
+
+        Debug.Log("triangles:");
+
+        for (int i = 0; i < CubeMeshData.triangles.Count; i++)
+        {
+            Debug.Log(i + ", " + CubeMeshData.triangles[i]);
+        }
+
         mesh.vertices = vertices.ToArray();
         mesh.triangles = trianglesd.ToArray();
         mesh.RecalculateNormals();
