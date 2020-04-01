@@ -71,4 +71,8 @@ public class ManejarManejadores : MonoBehaviour
         meshGeneration.UpdateMesh();
     }
 
+    void DestruirBolas()
+    {
+        //gameObject.Destroy;
+    }
 }

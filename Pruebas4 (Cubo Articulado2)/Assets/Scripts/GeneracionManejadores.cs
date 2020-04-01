@@ -17,7 +17,7 @@ public class GeneracionManejadores : MonoBehaviour
     {
         manejarManejadores = manejador.GetComponent<ManejarManejadores>();
         
-        nvert = CubeMeshData.vertices.Count;
+        //nvert = CubeMeshData.vertices.Count;
 
         GenerarBolas();
     }
@@ -28,8 +28,10 @@ public class GeneracionManejadores : MonoBehaviour
        
     }
 
-    void GenerarBolas()
+    public void GenerarBolas()
     {
+        nvert = CubeMeshData.vertices.Count;
+
         for (int i = 0; i < nvert; i++)
         {
             manejarManejadores.indiceVertice = i;
